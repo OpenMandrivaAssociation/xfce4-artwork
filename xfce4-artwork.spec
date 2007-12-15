@@ -1,23 +1,21 @@
-%define oname xfce4-artwork
-
 Summary:	Additional artwork for the Xfce Desktop Environment
-Name:		xfce-artwork
+Name:		xfce4-artwork
 Version:	0.2
 Release:	%mkrel 3
-License:	GPL
+License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://goodies.xfce.org/projects/artwork/xfce4-artwork
-Source0:	%{oname}-%{version}.tar.bz2
+Source0:	%{name}-%{version}.tar.bz2
 BuildArch:	noarch
+Obsoletes:	xfce-artwork
+Provides:	xfce-artwork
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
-Obsoletes:	xfce4-artwork
-Provides:	xfce4-artwork
 
 %description
 Additional artwork for the Xfce Desktop Environment.
  
 %prep
-%setup -qn %{oname}-%{version}
+%setup -q
 
 %build
 %configure2_5x
@@ -31,5 +29,5 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%doc README ChangeLog INSTALL COPYING AUTHORS
+%doc README ChangeLog AUTHORS
 %{_datadir}/xfce4/*
